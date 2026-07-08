@@ -1,0 +1,27 @@
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Backend (Java/Maven)
+backend/target/
+backend/.classpath
+backend/.project
+backend/.settings/
+
+# Frontend (React)
+frontend/node_modules/
+frontend/dist/
+
+# Legacy frontend (local reference only, not committed)
+frontend-legacy/
+.commit-staging/
+
+# Uploads & local config
+backend/**/uploads/
+backend/src/main/resources/application-local.yml
+*.log

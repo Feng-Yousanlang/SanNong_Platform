@@ -1,0 +1,15 @@
+package com.ltqtest.springbootquickstart.user.repository;
+
+import com.ltqtest.springbootquickstart.user.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@Repository
+public interface UserRepository extends JpaRepository<User, Integer> {
+    Optional<User> findByUsername(String username);
+    boolean existsByUsername(String username);
+    Optional<User> findByUserId(Integer userId);
+    boolean existsByUserId(Integer userId);
+}

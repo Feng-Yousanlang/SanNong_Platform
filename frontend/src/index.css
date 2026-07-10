@@ -5,12 +5,13 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  color: #0f172a;
-  background: #f8fafc;
+  color: #2d3b2d;
+  background: #e8efe8;
 }
 
 button,
 input,
-select {
+select,
+textarea {
   font: inherit;
 }

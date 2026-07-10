@@ -1,0 +1,226 @@
+.login-page {
+  min-height: 100vh;
+  background: #f4f7f4;
+}
+
+.login-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 440px);
+  min-height: 100vh;
+}
+
+.login-showcase {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, #2e7d32 0%, #43a047 55%, #66bb6a 100%);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 3rem clamp(1.5rem, 5vw, 4rem);
+}
+
+.login-showcase-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.2;
+  background:
+    repeating-linear-gradient(
+      -18deg,
+      transparent,
+      transparent 22px,
+      rgba(255, 255, 255, 0.05) 23px,
+      rgba(255, 255, 255, 0.05) 24px
+    ),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.15), transparent 45%);
+  pointer-events: none;
+}
+
+.login-showcase-inner {
+  position: relative;
+  max-width: 520px;
+}
+
+.login-showcase .brand {
+  margin-bottom: 2rem;
+}
+
+.login-showcase .brand-mark {
+  background: linear-gradient(145deg, #c8e6c9, #fff);
+}
+
+.login-showcase-title {
+  margin: 0 0 1rem;
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+.login-showcase-desc {
+  margin: 0 0 2rem;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.login-showcase-grid {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.showcase-panel {
+  padding: 1rem 1.15rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(6px);
+}
+
+.showcase-panel-label {
+  display: block;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.75;
+  margin-bottom: 0.25rem;
+}
+
+.showcase-panel strong {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.login-form-panel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 1.5rem;
+  background:
+    radial-gradient(ellipse at top right, rgba(200, 230, 201, 0.35), transparent 55%),
+    #f8fbf8;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 420px;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 16px 48px rgba(27, 94, 32, 0.12);
+  padding: 2rem;
+  border: 1px solid #dce8dc;
+}
+
+.login-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 24px;
+  background: #eef2ee;
+  padding: 4px;
+  border-radius: 12px;
+}
+
+.login-tabs button {
+  border: none;
+  background: transparent;
+  padding: 10px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #5f6f5f;
+  font-weight: 500;
+}
+
+.login-tabs button.active {
+  background: #fff;
+  color: #1b5e20;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(27, 94, 32, 0.1);
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.login-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 14px;
+  color: #1a2e1a;
+  font-weight: 600;
+}
+
+.login-form input,
+.login-form select {
+  padding: 12px 14px;
+  border: 1px solid #dce8dc;
+  border-radius: 10px;
+  font-size: 14px;
+  background: #f8fbf8;
+}
+
+.login-form input:focus,
+.login-form select:focus {
+  outline: none;
+  border-color: #2e7d32;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15);
+  background: #fff;
+}
+
+.primary-btn {
+  margin-top: 8px;
+  padding: 12px 16px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2e7d32, #43a047);
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(46, 125, 50, 0.2);
+}
+
+.primary-btn:hover {
+  background: linear-gradient(135deg, #1b5e20, #2e7d32);
+}
+
+.primary-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.form-message {
+  margin-top: 16px;
+  font-size: 14px;
+  color: #b45309;
+  text-align: center;
+}
+
+.register-hint {
+  margin: -4px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #5f6f5f;
+}
+
+@media (max-width: 900px) {
+  .login-main {
+    grid-template-columns: 1fr;
+  }
+
+  .login-showcase {
+    min-height: auto;
+    padding: 2rem 1.5rem;
+  }
+
+  .login-showcase-title {
+    font-size: 1.75rem;
+  }
+
+  .login-showcase-grid {
+    grid-template-columns: 1fr;
+  }
+}

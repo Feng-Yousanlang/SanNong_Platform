@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { fetchNews } from '../api/news';
-import { DEFAULT_IMG, resolveImage } from '../api/utils';
+import { DEFAULT_IMG } from '../api/utils';
+import { newsImageSrc } from '../constants/seedImages';
 import { useAuth } from '../context/AuthContext';
 import { HOME_FEATURES } from '../constants/nav';
 import PageHeader from '../components/PageHeader';
@@ -204,7 +205,7 @@ export default function Home() {
                       rel="noopener noreferrer"
                     >
                       <img
-                        src={resolveImage(current.imgUrl || current.imageUrl)}
+                        src={newsImageSrc(current)}
                         alt={current.title || current.name || '资讯'}
                         onError={(e) => {
                           e.currentTarget.src = DEFAULT_IMG;

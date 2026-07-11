@@ -12,7 +12,8 @@ import {
   receiveProduct,
   removeFromCart,
 } from '../api/products';
-import { DEFAULT_IMG, resolveImage } from '../api/utils';
+import { DEFAULT_IMG } from '../api/utils';
+import { productImageSrc } from '../constants/seedImages';
 import DetailLine from '../components/DetailLine';
 import Modal from '../components/Modal';
 import PageHeader from '../components/PageHeader';
@@ -245,7 +246,7 @@ export default function Buy() {
                   tabIndex={0}
                 >
                   <img
-                    src={resolveImage(p.productImg || p.imageUrl)}
+                    src={productImageSrc(p)}
                     alt={p.productName}
                     onError={(e) => {
                       e.currentTarget.src = DEFAULT_IMG;
@@ -339,7 +340,7 @@ export default function Buy() {
         {selected ? (
           <div className="section-split">
             <img
-              src={resolveImage(selected.productImg || selected.imageUrl)}
+              src={productImageSrc(selected)}
               alt={selected.productName}
               style={{ width: '100%', borderRadius: 12, maxHeight: 280, objectFit: 'cover' }}
               onError={(e) => {

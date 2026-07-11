@@ -8,6 +8,7 @@ import {
   sendProduct,
 } from '../api/products';
 import { DEFAULT_IMG, resolveImage } from '../api/utils';
+import { productImageSrc } from '../constants/seedImages';
 import PageHeader from '../components/PageHeader';
 import { useAuth } from '../context/AuthContext';
 
@@ -131,7 +132,7 @@ export default function Products() {
               products.map((p) => (
                 <div key={p.productId || p.id} className="item-card">
                   <img
-                    src={resolveImage(p.productImg || p.imageUrl)}
+                    src={productImageSrc(p)}
                     alt={p.productName}
                     onError={(e) => {
                       e.currentTarget.src = DEFAULT_IMG;

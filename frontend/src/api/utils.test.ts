@@ -35,6 +35,8 @@ describe('api utils', () => {
     expect(resolveImage('https://cdn.example.com/a.jpg')).toBe('https://cdn.example.com/a.jpg');
     expect(resolveImage('uploads/a.jpg')).toContain('/uploads/a.jpg');
     expect(resolveImage('/uploads/a.jpg')).toContain('/uploads/a.jpg');
+    expect(resolveImage('http://localhost:8080/products/apple.svg')).toBe('/products/apple.svg');
+    expect(resolveImage('/products/apple.svg')).toBe('/products/apple.svg');
   });
 
   it('formatDate should format valid dates and fallback safely', () => {

@@ -43,6 +43,14 @@ export function resolveImage(url: unknown): string {
   if (!url) return DEFAULT_IMG;
   const trimmed = String(url).trim();
   if (!trimmed) return DEFAULT_IMG;
+
+  const sameOriginPath = (() => {
+    if (trimmed.startsWith('/products/') || trimmed.startsWith('/news/')) return trimmed;
+    const m = trimmed.match(/^https?:\/\/[^/]+(\/(?:products|news)\/.+)$/);
+    return m ? m[1] : null;
+  })();
+  if (sameOriginPath) return sameOriginPath;
+
   if (trimmed.startsWith('http://') || trimmed.startsWith('https://')) {
     return trimmed;
   }

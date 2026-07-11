@@ -33,27 +33,27 @@ SHOW TABLES;
 
 ## 1.5 导入演示数据（推荐）
 
-完成 `init.sql` 后，导入测试账号与商品数据，避免页面空白：
+完成 `init.sql` 后，导入测试账号与商品数据，避免页面空白。
+
+PowerShell 请用（`<` 在 PowerShell 里不可用）：
 
 ```powershell
-mysql -u root -p --default-character-set=utf8mb4 test < docs/seed-data.sql
+Get-Content docs/seed-data.sql -Raw -Encoding UTF8 | mysql -u root -p --default-character-set=utf8mb4 test
 ```
+
+或在 **MySQL Workbench / Navicat** 中直接打开 `docs/seed-data.sql` 执行。
 
 **测试账号（密码均为 `123456`）**
 
 | 用户名 | 角色 | 说明 |
 |--------|------|------|
-| farmer01 | 农户 | `seed-data.sql` 已包含，也可注册页自助注册 |
-| buyer01 | 买家 | `seed-data.sql` 已包含，也可注册页自助注册 |
-| expert01 | 专家 | `seed-data.sql` 已包含；仅要分发账号时可单独导入 `staff-accounts.sql` |
-| bank01 | 银行工作人员 | 同上 |
-| admin01 | 平台管理员 | 同上 |
+| farmer01 | 农户 | 演示农户账号 |
+| buyer01 | 买家 | 演示买家账号 |
+| expert01 | 专家 | 登录账号；专家列表中显示为 **「王专家」** |
+| bank01 | 银行工作人员 | 对应审批人 **「赵经理」** |
+| admin01 | 平台管理员 | 平台管理账号 |
 
-**仅导入专家 / 银行 / 管理员分发账号（不含商品等演示数据）：**
-
-```powershell
-mysql -u root -p --default-character-set=utf8mb4 test < docs/staff-accounts.sql
-```
+> 农户端「专家预约 → 专家列表」读取的是 `experts` 表，不是 `tb_user`。`expert01` 是登录名，对应专家档案 **王专家**。
 
 ## 2. 配置后端
 

@@ -44,7 +44,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       try {
         const data = await fetchProfile(auth.userId);
         if (cancelled) return;
-        const name = pickValue(data, ['username', 'user_name'], '');
+        const name = String(pickValue(data, ['username', 'user_name'], '') || '').trim();
         if (!name) return;
         localStorage.setItem(STORAGE_KEYS.username, name);
         setAuth((prev) => ({ ...prev, username: name }));

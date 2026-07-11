@@ -4,7 +4,7 @@ import PageHeader from './PageHeader';
 
 describe('PageHeader', () => {
   it('renders title and subtitle', () => {
-    render(<PageHeader title="农产品商城" subtitle="选购新鲜农产品" />);
+    render(<PageHeader title="农产品商城" subtitle="选购新鲜农产品" actions={undefined} eyebrow={undefined} />);
     expect(screen.getByRole('heading', { name: '农产品商城' })).toBeInTheDocument();
     expect(screen.getByText('选购新鲜农产品')).toBeInTheDocument();
   });
@@ -13,6 +13,8 @@ describe('PageHeader', () => {
     render(
       <PageHeader
         title="管理"
+        subtitle={undefined}
+        eyebrow={undefined}
         actions={<button type="button">新增</button>}
       />,
     );

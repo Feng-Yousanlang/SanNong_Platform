@@ -5,7 +5,7 @@ import Modal from './Modal';
 describe('Modal', () => {
   it('renders nothing when closed', () => {
     const { container } = render(
-      <Modal open={false} title="标题" onClose={() => {}}>
+      <Modal open={false} title="标题" onClose={() => {}} footer={undefined} wide={false}>
         内容
       </Modal>,
     );
@@ -14,7 +14,7 @@ describe('Modal', () => {
 
   it('renders title, body and footer when open', () => {
     render(
-      <Modal open title="详情" onClose={() => {}} footer={<button type="button">确定</button>}>
+      <Modal open title="详情" onClose={() => {}} footer={<button type="button">确定</button>} wide={false}>
         正文
       </Modal>,
     );
@@ -26,7 +26,7 @@ describe('Modal', () => {
   it('calls onClose when backdrop is clicked', () => {
     const onClose = vi.fn();
     render(
-      <Modal open title="关闭测试" onClose={onClose}>
+      <Modal open title="关闭测试" onClose={onClose} footer={undefined} wide={false}>
         内容
       </Modal>,
     );

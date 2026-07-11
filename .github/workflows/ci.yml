@@ -18,7 +18,7 @@ jobs:
           cache: maven
       - name: Compile and test backend
         working-directory: backend
-        run: ./mvnw -B -q test -Pcoverage
+        run: chmod +x ./mvnw && ./mvnw -B -q test -Pcoverage
 
   frontend:
     runs-on: ubuntu-latest
